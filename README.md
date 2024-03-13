@@ -29,6 +29,11 @@
 2. Click on "Add project" and follow the instructions to create a new Firebase project.
 3. Once the project is created, click on "Add Firebase to your Android app" and follow the instructions to register your app.
 4. Download the `google-services.json` file and place it in the `android/app` directory of your Flutter project.
+5. Click on "Add Firebase to your iOS app" in the Firebase console and follow the instructions to register your app.
+6. Download the `GoogleService-Info.plist` file.
+7. Open your iOS project in Xcode (located in `ios/Runner.xcworkspace` in your Flutter project).
+8. Right-click on the Runner directory in Xcode and select "Add Files to Runner".
+9. Select the `GoogleService-Info.plist` file that you downloaded and make sure the "Copy items if needed" checkbox is checked.
 
 ### Getting SHA-1 Fingerprint
 
