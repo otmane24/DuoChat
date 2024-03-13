@@ -3,8 +3,8 @@
 
 ### Prerequisites
 
-- Flutter SDK
-- Dart SDK
+- Flutter SDK ("Using Flutter version 3.19.3")
+- Dart SDK ("Dart version 3.3.1")
 - Android Studio or VS Code with Flutter plugin
 - Firebase account
 
@@ -12,7 +12,7 @@
 
 1. Clone the repository:
 
-    git clone https://github.com/username/repository.git
+    git clone https://github.com/otmane24/DuoChat.git
   
 2. Navigate to the project directory:
  
