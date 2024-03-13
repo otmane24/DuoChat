@@ -2,23 +2,26 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:duochat/assistant_methode/firestore_function.dart';
 import 'package:duochat/assistant_methode/size_config.dart';
 import 'package:duochat/models/message_model.dart';
-
 import 'package:duochat/presentation/components/container/container_message.dart';
+import 'package:duochat/presentation/components/container/message_item.dart';
 import 'package:flutter/material.dart';
 
 class ChatScreen extends StatelessWidget {
+  // Declare necessary variables
   final String documentId;
   final String userId;
   final String nameUser;
+  final TextEditingController _textEditingController = TextEditingController();
+  final List<MessageModel> messageModel = [];
+  final FireStoreFunction fireStoreFunction = FireStoreFunction();
+
+  // Constructor for ChatScreen
   ChatScreen(
       {required this.documentId,
       required this.userId,
       required this.nameUser,
       super.key});
 
-  final TextEditingController _textEditingController = TextEditingController();
-  final List<MessageModel> messageModel = [];
-  final FireStoreFunction fireStoreFunction = FireStoreFunction();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +33,12 @@ class ChatScreen extends StatelessWidget {
         children: [
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
+              // Set the stream to get the messages from Firestore
               stream: fireStoreFunction.getMessages(documentId),
+
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
+                // update all status of message as see
                 fireStoreFunction.sendVus(documentId, userId);
 
                 if (snapshot.hasError) {
@@ -42,15 +48,21 @@ class ChatScreen extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: Text("Loading ..."));
                 }
+
+                // Clear the messageModel list
                 messageModel.clear();
+
+                // Add each document in the snapshot to the messageModel list
                 for (var msg in snapshot.data!.docs) {
                   messageModel.add(MessageModel.fromJson(msg));
                 }
+
                 return ListView.separated(
                   padding: EdgeInsets.zero,
                   reverse: true,
                   itemBuilder: (context, index) {
-                    return ContainerMessage(
+                    // Return a ContainerMessage widget
+                    return MessageItem(
                         message: messageModel[index],
                         isSender: messageModel[index].ownerId == userId);
                   },
@@ -75,6 +87,7 @@ class ChatScreen extends StatelessWidget {
                   child: TextField(
                     controller: _textEditingController,
                     onSubmitted: (value) {
+                      // If the TextField is not empty, send a message
                       if (_textEditingController.text.isNotEmpty) {
                         fireStoreFunction
                             .sendMessage(
@@ -89,6 +102,7 @@ class ChatScreen extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () {
+                    // If the TextField is not empty, send a message
                     if (_textEditingController.text.isNotEmpty) {
                       fireStoreFunction
                           .sendMessage(

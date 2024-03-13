@@ -6,6 +6,7 @@ class MessageModel {
   bool? isVus;
   DateTime? createdAt;
 
+  // Define a factory constructor that creates a MessageModel from a JSON object
   factory MessageModel.fromJson(QueryDocumentSnapshot json) {
     return MessageModel(
       message: json['message'] ?? '',
@@ -16,12 +17,14 @@ class MessageModel {
           : DateTime.now(),
     );
   }
+
   Map<String, dynamic> toJson() => {
         'message': message,
         'ownerId': ownerId,
         'isVus': isVus,
         'createdAt': createdAt,
       };
+
   MessageModel({
     this.message,
     this.ownerId,

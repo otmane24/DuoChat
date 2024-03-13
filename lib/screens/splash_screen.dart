@@ -13,9 +13,14 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  // Override initState to perform actions when the state is initialized
   @override
   void initState() {
-    FireStoreFunction().checkUser().then((value) => Navigator.of(context)
+    // Call the getUsers method from FireStoreFunction
+    // This method retrieves the users from Firestore
+    // Once the users are retrieved, it navigates to the home screen
+    // The pushNamedAndRemoveUntil method removes all routes below the pushed route
+    FireStoreFunction().getUsers().then((value) => Navigator.of(context)
         .pushNamedAndRemoveUntil(AppRouter.homeScreenRouter, (route) => false));
 
     super.initState();
@@ -23,7 +28,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
     return Scaffold(
       body: SizedBox(
         height: double.infinity,

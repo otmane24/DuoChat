@@ -6,28 +6,31 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // Initialize the current index to 0
   int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        // Set the onTap callback to update the current index
         onTap: (index) {
           setState(() {
             _currentIndex = index;
           });
         },
+        // Set the current index of the bottom navigation bar
         currentIndex: _currentIndex,
         backgroundColor: ColorManager.white,
         elevation: 20,
         selectedFontSize: 1.4 * SizeConfig.blockSizeVertical!,
         unselectedFontSize: 1.2 * SizeConfig.blockSizeVertical!,
+        // Set the items of the bottom navigation bar
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
@@ -40,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
+        // Set the onPressed callback to show a dialog to create a new discussion
         onPressed: () {
           showDialog(
             context: context,
@@ -57,7 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
-      body: Discussion(id: _currentIndex),
+      // Set the body of the scaffold
+      body: DiscussionScreen(id: _currentIndex),
     );
   }
 }
