@@ -2,7 +2,7 @@ import 'package:duochat/models/message_model.dart';
 import 'package:duochat/presentation/components/container/container_message.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../../../assistant_methode/size_config.dart';
+import '../../../utils/size_config.dart';
 import '../../colors/color_manager.dart';
 
 class MessageItem extends StatelessWidget {
@@ -54,7 +54,7 @@ class MessageItem extends StatelessWidget {
                       Icon(
                         Icons.done_all,
                         size: 3.4 * SizeConfig.blockSizeHorizontal!,
-                        color: message.isVus!
+                        color: message.isSeen!
                             ? ColorManager.primary
                             : ColorManager.grey,
                       ),

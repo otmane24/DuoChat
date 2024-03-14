@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DiscussionModel {
-  String? id;
-  String? createdBy;
-  String? name;
-  DateTime? createdAt;
+  final String id;
+  final String createdBy;
+  final String name;
+  final DateTime createdAt;
 
   factory DiscussionModel.fromJson(QueryDocumentSnapshot json) {
     return DiscussionModel(
@@ -23,9 +23,9 @@ class DiscussionModel {
         'createdAt': createdAt,
       };
   DiscussionModel({
-    this.id,
-    this.createdBy,
-    this.name,
-    this.createdAt,
+    required this.id,
+    required this.createdBy,
+    required this.name,
+    required this.createdAt,
   });
 }

@@ -1,7 +1,7 @@
-import 'package:duochat/assistant_methode/firestore_function.dart';
+import 'package:duochat/utils/firestore_function.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../assistant_methode/size_config.dart';
+import '../utils/size_config.dart';
 import '../presentation/constants/strings.dart';
 import '../routing/app_routing.dart';
 

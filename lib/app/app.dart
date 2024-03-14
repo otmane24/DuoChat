@@ -1,7 +1,7 @@
 // Import necessary packages
 import 'package:duochat/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
-import '../assistant_methode/size_config.dart';
+import '../utils/size_config.dart';
 import '../presentation/colors/color_manager.dart';
 import '../routing/router_generator.dart';
 

@@ -61,7 +61,7 @@ class FireStoreFunction {
     // Add a new message to the discussion document
     document.collection("messages").add({
       "createdAt": DateTime.now(),
-      "isVus": false,
+      "isSeen": false,
       "ownerId": userId,
       "message": msg
     });
@@ -70,7 +70,7 @@ class FireStoreFunction {
   // Define a method to send a 'vus' (viewed) status
   sendVus(String documentId, String userId) {
     // Get a reference to the messages collection
-    final collection = FirebaseFirestore.instance
+    final collection = firestore
         .collection('Discussion')
         .doc(documentId)
         .collection('messages');
@@ -81,7 +81,7 @@ class FireStoreFunction {
       for (var doc in element.docs) {
         if (doc['ownerId'] != userId) {
           doc.reference.update({
-            'isVus': true,
+            'isSeen': true,
           });
         }
       }

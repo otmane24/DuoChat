@@ -1,8 +1,8 @@
-import 'package:duochat/screens/home/home.dart';
+import 'package:duochat/screens/home.dart';
 import 'package:flutter/material.dart';
 
 import '../app/app.dart';
-import '../screens/chat/chat.dart';
+import '../screens/chat.dart';
 import 'app_routing.dart';
 
 class RouterGenerator {
@@ -10,7 +10,7 @@ class RouterGenerator {
     switch (routeSettings.name) {
       case AppRouter.homeScreenRouter:
         return MaterialPageRoute(
-          builder: (_) => HomeScreen(),
+          builder: (_) => const HomeScreen(),
         );
       case AppRouter.chatScreenRouter:
         String documentId = (routeSettings.arguments as List)[0] as String;

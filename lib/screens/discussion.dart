@@ -1,20 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:duochat/assistant_methode/firestore_function.dart';
-import 'package:duochat/assistant_methode/size_config.dart';
+import 'package:duochat/utils/firestore_function.dart';
+import 'package:duochat/utils/size_config.dart';
 import 'package:duochat/models/discussion_model.dart';
 import 'package:duochat/presentation/components/list_tile/discussion_tile.dart';
 import 'package:duochat/presentation/constants/strings.dart';
 import 'package:duochat/routing/app_routing.dart';
 import 'package:flutter/material.dart';
-import '../../models/message_model.dart';
 
-class DiscussionScreen extends StatelessWidget {
+class DiscussionScreen extends StatefulWidget {
   // Declare the id and initialize the messageModel and discussionModel lists
   final int id;
-  final List<MessageModel> messageModel = [];
-  final List<DiscussionModel> discussionModel = [];
 
-  DiscussionScreen({required this.id, super.key});
+  const DiscussionScreen({required this.id, super.key});
+
+  @override
+  State<DiscussionScreen> createState() => _DiscussionScreenState();
+}
+
+class _DiscussionScreenState extends State<DiscussionScreen> {
+  final List<DiscussionModel> discussionModel = [];
 
   @override
   Widget build(BuildContext context) {
@@ -55,40 +59,18 @@ class DiscussionScreen extends StatelessWidget {
                       // Set the onTap callback to navigate to the chat screen
                       onTap: () => Navigator.of(context)
                           .pushNamed(AppRouter.chatScreenRouter, arguments: [
-                        discussionModel[index].id, // the discussion id
-                        usersId[id], // the user id
-                        "User ${id == 0 ? 2 : 1}" // to know which user you are talking to
-                      ]), //
+                        snapshot.data!.docs[index].id, // the discussion id
+                        usersId[widget.id], // the user id
+                        "User ${widget.id == 0 ? 2 : 1}" // to know which user you are talking to
+                      ]).then((value) => setState(() {})), //
 
-                      child: StreamBuilder<QuerySnapshot>(
-                          stream: FireStoreFunction().getMessages(discussionModel[
-                                  index]
-                              .id!), // Set the stream to get the messages from Firestore
-
-                          builder: (context, snapshot2) {
-                            if (snapshot2.hasError) {
-                              return const Text('Something went wrong');
-                            }
-
-                            if (snapshot2.connectionState ==
-                                ConnectionState.waiting) {
-                              return const Text("");
-                            }
-                            // Clear the messageModel list
-                            messageModel.clear();
-                            // Add each document in the snapshot to the messageModel list
-                            for (var msg in snapshot2.data!.docs) {
-                              messageModel.add(MessageModel.fromJson(msg));
-                            }
-                            // Return a DiscussionTile widget
-                            return DiscussionTile(
-                              messages:
-                                  messageModel, // the messageModel list to know the last message and number of new messages
-                              id: id, // the user id
-                              title:
-                                  '${discussionModel[index].name}', // the discussion name
-                            );
-                          }),
+                      child: DiscussionTile(
+                        documentId: snapshot.data!.docs[index]
+                            .id, // the messageModel list to know the last message and number of new messages
+                        id: widget.id, // the user id
+                        title:
+                            discussionModel[index].name, // the discussion name
+                      ),
                     );
                   },
 

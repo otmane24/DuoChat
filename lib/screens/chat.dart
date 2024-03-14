@@ -1,8 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:duochat/assistant_methode/firestore_function.dart';
-import 'package:duochat/assistant_methode/size_config.dart';
+import 'package:duochat/utils/firestore_function.dart';
+import 'package:duochat/utils/size_config.dart';
 import 'package:duochat/models/message_model.dart';
-import 'package:duochat/presentation/components/container/container_message.dart';
 import 'package:duochat/presentation/components/container/message_item.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +23,7 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("id: $documentId");
     return Scaffold(
       appBar: AppBar(
         title: Text(nameUser),

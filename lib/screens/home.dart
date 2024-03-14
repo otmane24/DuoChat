@@ -1,7 +1,7 @@
-import 'package:duochat/assistant_methode/size_config.dart';
+import 'package:duochat/utils/size_config.dart';
 import 'package:duochat/presentation/colors/color_manager.dart';
 import 'package:duochat/presentation/components/alert_dialog/discussion_name_dialog.dart';
-import 'package:duochat/screens/discusion/discussion.dart';
+import 'package:duochat/screens/discussion.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,8 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       floatingActionButton: FloatingActionButton(
         // Set the onPressed callback to show a dialog to create a new discussion
-        onPressed: () {
-          showDialog(
+        onPressed: () async {
+          await showDialog(
             context: context,
             builder: (context) {
               return DiscussionNameDialogs(index: _currentIndex);

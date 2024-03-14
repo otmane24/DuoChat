@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../assistant_methode/size_config.dart';
+import '../../../utils/size_config.dart';
 
 class ContainerMessage extends StatelessWidget {
   final List<Widget> children;

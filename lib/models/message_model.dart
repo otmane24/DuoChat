@@ -1,17 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MessageModel {
-  String? message;
-  String? ownerId;
-  bool? isVus;
-  DateTime? createdAt;
+  final String message;
+  final String ownerId;
+  final bool isSeen;
+  final DateTime createdAt;
 
   // Define a factory constructor that creates a MessageModel from a JSON object
   factory MessageModel.fromJson(QueryDocumentSnapshot json) {
     return MessageModel(
       message: json['message'] ?? '',
       ownerId: json['ownerId'] ?? '',
-      isVus: json['isVus'] ?? false,
+      isSeen: json['isSeen'] ?? false,
       createdAt: json['createdAt'] != null
           ? (json['createdAt'] as Timestamp).toDate()
           : DateTime.now(),
@@ -21,14 +21,14 @@ class MessageModel {
   Map<String, dynamic> toJson() => {
         'message': message,
         'ownerId': ownerId,
-        'isVus': isVus,
+        'isSeen': isSeen,
         'createdAt': createdAt,
       };
 
   MessageModel({
-    this.message,
-    this.ownerId,
-    this.isVus,
-    this.createdAt,
+    required this.message,
+    required this.ownerId,
+    required this.isSeen,
+    required this.createdAt,
   });
 }
