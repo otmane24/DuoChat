@@ -28,17 +28,17 @@
 ## Installation
 
 1. Clone the repository:
-
+```bash
     git clone https://github.com/otmane24/DuoChat.git
-  
+``` 
 2. Navigate to the project directory:
- 
+ ```bash
     cd repository
- 
+ ```
 3. Get the dependencies:
-
+```bash
     flutter pub get
-
+```
 
 ## Firebase Setup
 
@@ -58,22 +58,22 @@ Firebase uses the SHA-1 fingerprint to authenticate requests from your Android a
 
 1. Open Terminal in Android Studio (View -> Tool Windows -> Terminal).
 2. Navigate to the `android` directory in your project:
- 
+```bash
     cd android
-
+```
 3. Run the following command:
-
+```bash
     ./gradlew signingReport
-
+```
 4. Copy the SHA-1 fingerprint and paste it in the Firebase console where required.
 
 ## Running the App
 
 1. Start an Android emulator or connect a physical Android device to your computer.
 2. Run the app:
- 
+    ```bash
     flutter run
-
+    ```
 ## Important
 
 For the purpose of testing, I have left my Firebase configuration in this repository. Please do not use it for any other purposes. In a real-world scenario, these sensitive details should be kept private and not be committed to the repository.
