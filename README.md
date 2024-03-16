@@ -3,19 +3,19 @@
 
  
  ## App Screenshot
-
-<img src="./assets/screen_shot/screen.png"  height="300">
-<br>
-<img src="./assets/screen_shot/screen1.png"  height="300">
-<img src="./assets/screen_shot/screen2.png"  height="300">
-<img src="./assets/screen_shot/screen3.png"  height="300">
-<br>
-<img src="./assets/screen_shot/screen4.png"  height="300">
-<img src="./assets/screen_shot/screen5.png"  height="300">
-<img src="./assets/screen_shot/screen6.png"  height="300">
-<img src="./assets/screen_shot/screen7.png"  height="300">
-<img src="./assets/screen_shot/screen8.png"  height="300">
-
+<div style="display: flex; justify-content: center; flex-wrap: wrap;">
+  <img src="./assets/screen_shot/screen.png"  height="300">
+  <img src="./assets/screen_shot/screen1.png"  height="300">
+  <br>
+  <img src="./assets/screen_shot/screen2.png"  height="300">
+  <img src="./assets/screen_shot/screen3.png"  height="300">
+  <br>
+  <img src="./assets/screen_shot/screen4.png"  height="300">
+  <img src="./assets/screen_shot/screen5.png"  height="300">
+  <img src="./assets/screen_shot/screen6.png"  height="300">
+  <img src="./assets/screen_shot/screen7.png"  height="300">
+  <img src="./assets/screen_shot/screen8.png"  height="300">
+</div>
 
 
 ## Prerequisites
