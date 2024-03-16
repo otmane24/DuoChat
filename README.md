@@ -4,16 +4,17 @@
  
  ## App Screenshot
 
-![App Screenshot](./assets/screen_shot/screen.png)
-![App Screenshot](./assets/screen_shot/screen1.png)
-![App Screenshot](./assets/screen_shot/screen2.png)
-![App Screenshot](./assets/screen_shot/screen3.png)
-![App Screenshot](./assets/screen_shot/screen4.png)
-![App Screenshot](./assets/screen_shot/screen5.png)
-![App Screenshot](./assets/screen_shot/screen6.png)
-![App Screenshot](./assets/screen_shot/screen7.png)
-![App Screenshot](./assets/screen_shot/screen8.png)
-![App Screenshot](./assets/screen_shot/screen9.png)
+<img src="./assets/screen_shot/screen.png"  height="300">
+<br>
+<img src="./assets/screen_shot/screen1.png"  height="300">
+<img src="./assets/screen_shot/screen2.png"  height="300">
+<img src="./assets/screen_shot/screen3.png"  height="300">
+<br>
+<img src="./assets/screen_shot/screen4.png"  height="300">
+<img src="./assets/screen_shot/screen5.png"  height="300">
+<img src="./assets/screen_shot/screen6.png"  height="300">
+<img src="./assets/screen_shot/screen7.png"  height="300">
+<img src="./assets/screen_shot/screen8.png"  height="300">
 
 
 
